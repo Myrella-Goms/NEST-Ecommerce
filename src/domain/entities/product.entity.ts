@@ -8,7 +8,7 @@ export class ProductEntity {
   @Column({ type: 'varchar', length: 200 })
   name: string;
 
-  @Column({ type: 'float', precision: 10, scale: 2 })
+  @Column({ type: 'numeric', precision: 10, scale: 2 })
   valor: number;
 
   @Column({ type: 'varchar', length: 50 })
