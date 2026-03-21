@@ -12,7 +12,7 @@ import { PostgresClientFactory } from './infra/postgres-client.factory';
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useExisting: PostgresClientFactory,
+      useClass: PostgresClientFactory,
     }),
   ],
   controllers: [],

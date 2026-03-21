@@ -16,8 +16,9 @@ export class PostgresClientFactory implements TypeOrmOptionsFactory {
       password: this.configService.get<string>('database.password'),
       database: this.configService.get<string>('database.database'),
       entities: [ProductEntity],
+      migrations: ['dist/infra/database/migrations/*.js'],
       synchronize: false,
-      migrationsRun: true,
+      migrationsRun: false,
     };
   }
 }
