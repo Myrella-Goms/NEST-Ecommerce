@@ -1,12 +1,14 @@
-export default () => ({
+const envConfig = () => ({
   app: {
-    port: Number(process.env.NODE_PORT),
+    port: Number(process.env.PORT ?? 3000),
   },
   database: {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    name: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST ?? 'localhost',
+    port: Number(process.env.DB_PORT ?? 5432),
+    user: process.env.DB_USER ?? 'admin',
+    password: process.env.DB_PASSWORD ?? 'admin',
+    database: process.env.DB_NAME ?? 'ecommerce',
   },
 });
+
+export default envConfig;

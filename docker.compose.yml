@@ -1,6 +1,21 @@
 version: '3.7'
 services:
- postgres:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecommerce_api
+    ports:
+      - '3002:3000'
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: admin
+      DB_PASSWORD: admin
+      DB_NAME: ecommerce
+  postgres:
    image: postgres:13
    container_name: postgres_db
    ports:
@@ -13,3 +28,4 @@ services:
      - postgres_data:/var/lib/postgresql/data
 volumes:
  postgres_data:
+ 
