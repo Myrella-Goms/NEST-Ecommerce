@@ -1,4 +1,10 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('product')
 export class ProductEntity {
@@ -8,7 +14,15 @@ export class ProductEntity {
   @Column({ type: 'varchar', length: 200 })
   name: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  @Column({
+    type: 'decimal',
+    precision: 10,
+    scale: 2,
+    transformer: {
+      to: (value?: number) => value,
+      from: (value: string) => Number(value),
+    },
+  })
   value: number;
 
   @Column({ type: 'varchar', length: 50 })
