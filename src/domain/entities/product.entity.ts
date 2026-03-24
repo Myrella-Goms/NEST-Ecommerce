@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('product')
 export class ProductEntity {
@@ -8,12 +8,18 @@ export class ProductEntity {
   @Column({ type: 'varchar', length: 200 })
   name: string;
 
-  @Column({ type: 'numeric', precision: 10, scale: 2 })
-  valor: number;
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  value: number;
 
   @Column({ type: 'varchar', length: 50 })
-  marca: string;
+  brand: string;
 
   @Column({ type: 'int' })
-  quantidade: number;
+  amount: number;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt: Date;
 }
