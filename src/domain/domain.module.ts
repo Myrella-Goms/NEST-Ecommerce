@@ -8,5 +8,3 @@ import { InfraModule } from 'src/infra/infra.module';
   exports: [CreateProductUseCase],
 })
 export class DomainModule {}
-
-export type { IProductInterface } from '../domain/interfaces/product.repository.interface';

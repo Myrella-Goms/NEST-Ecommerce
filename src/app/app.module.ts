@@ -6,7 +6,6 @@ import envConfig from '../config/env.config';
 import { InfraModule } from '../infra/infra.module';
 import { PostgresClientFactory } from '../infra/postgres-client.factory';
 import { DomainModule } from '../domain/domain.module';
-import { ProductEntity } from '../domain/entities/product.entity';
 
 @Module({
   imports: [
@@ -16,9 +15,6 @@ import { ProductEntity } from '../domain/entities/product.entity';
     }),
     TypeOrmModule.forRootAsync({
       useClass: PostgresClientFactory,
-    }),
-    TypeOrmModule.forFeature({
-      ProductEntity,
     }),
     InfraModule,
     DomainModule,
