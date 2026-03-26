@@ -11,7 +11,6 @@ import { PostgresClientFactory } from './infra/postgres-client.factory';
       load: [envConfig],
     }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
       useClass: PostgresClientFactory,
     }),
   ],

@@ -18,7 +18,7 @@ export class PostgresClientFactory implements TypeOrmOptionsFactory {
       entities: [ProductEntity],
       migrations: ['dist/infra/database/migrations/*.js'],
       synchronize: false,
-      migrationsRun: false,
+      migrationsRun: true,
     };
   }
 }
