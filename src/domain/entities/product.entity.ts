@@ -14,6 +14,12 @@ export class ProductEntity {
   @Column({ type: 'varchar', length: 200 })
   name: string;
 
+  @Column({ type: 'varchar', length: 200 })
+  category: string;
+
+  @Column({ type: 'varchar', length: 200 })
+  subcategory: string;
+
   @Column({
     type: 'decimal',
     precision: 10,

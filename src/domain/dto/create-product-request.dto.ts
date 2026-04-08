@@ -10,6 +10,22 @@ export class CreateProductRequestDto {
   @IsNotEmpty()
   name: string;
 
+  @ApiProperty({
+    description: 'The category of the product',
+    example: 'Electronics',
+  })
+  @IsString()
+  @IsNotEmpty()
+  category: string;
+
+  @ApiProperty({
+    description: 'The subcategory of the product',
+    example: 'Laptops',
+  })
+  @IsString()
+  @IsNotEmpty()
+  subcategory: string;
+
   @ApiProperty({ description: 'The value of the product', example: '150.55' })
   @IsNotEmpty()
   @IsNumber()
