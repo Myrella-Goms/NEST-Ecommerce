@@ -9,16 +9,16 @@ import {
 @Entity('product')
 export class ProductEntity {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'varchar', length: 200 })
-  name: string;
+  name!: string;
 
   @Column({ type: 'varchar', length: 200 })
-  category: string;
+  category!: string;
 
   @Column({ type: 'varchar', length: 200 })
-  subcategory: string;
+  subcategory!: string;
 
   @Column({
     type: 'decimal',
@@ -26,20 +26,20 @@ export class ProductEntity {
     scale: 2,
     transformer: {
       to: (value?: number) => value,
-      from: (value: string) => Number(value),
+      from: Number,
     },
   })
-  value: number;
+  value!: number;
 
   @Column({ type: 'varchar', length: 50 })
-  brand: string;
+  brand!: string;
 
   @Column({ type: 'int' })
-  amount: number;
+  amount!: number;
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
-  updatedAt: Date;
+  updatedAt!: Date;
 }

@@ -3,8 +3,6 @@ import { Table } from 'typeorm';
 
 export class CreateProduct1774135335235 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "pgcrypto"');
-
     await queryRunner.createTable(
       new Table({
         name: 'product',

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductsController } from './controllers/product/product.controller';
 import envConfig from '../config/env.config';
 import { InfraModule } from '../infra/infra.module';
 import { PostgresClientFactory } from '../infra/postgres-client.factory';
-import { DomainModule } from '../domain/domain.module';
+import { UsersModule } from './users/users.module';
+import { ProductModule } from './products/product.module';
 
 @Module({
   imports: [
@@ -17,9 +17,10 @@ import { DomainModule } from '../domain/domain.module';
       useClass: PostgresClientFactory,
     }),
     InfraModule,
-    DomainModule,
+    UsersModule,
+    ProductModule,
   ],
-  controllers: [ProductsController],
+  controllers: [],
   providers: [PostgresClientFactory],
 })
 export class AppModule {}

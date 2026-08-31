@@ -1,7 +1,7 @@
 import { Body, Controller, ParseArrayPipe, Post } from '@nestjs/common';
-import { CreateProductRequestDto } from 'src/domain/dto/create-product-request.dto';
-import { CreateProductResponseDto } from 'src/domain/dto/create-product-response.dto';
-import { CreateProductUseCase } from 'src/domain/use-cases/create-product/create-product.use-case';
+import { CreateProductUseCase } from '../create-product/create-product.use-case';
+import { CreateProductRequestDto } from '../dto/create-product-request.dto';
+import { CreateProductResponseDto } from '../dto/create-product-response.dto';
 
 @Controller('products')
 export class ProductsController {

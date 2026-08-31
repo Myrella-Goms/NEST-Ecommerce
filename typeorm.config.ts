@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { ProductEntity } from './src/domain/entities/product.entity';
+import { ProductEntity } from './src/app/products/entities/product.entity';
 
 export default new DataSource({
   type: 'postgres',

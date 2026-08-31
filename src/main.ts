@@ -1,12 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { Logger } from '@nestjs/common';
+import { DatabaseExceptionFilter } from './shared/exceptions/filters/database-exception.filter';
 
 async function bootstrap() {
   const logger = new Logger('Bootstrap');
   const app = await NestFactory.create(AppModule);
+
+  // Register global exception filter for database errors
+  app.useGlobalFilters(new DatabaseExceptionFilter());
+
   app.useGlobalPipes(
     new ValidationPipe({
       forbidNonWhitelisted: true,
